@@ -1,23 +1,23 @@
 <?php
 
-$formatoAtual = $argv[1];
-$nomePagina   = 'A';
+$currentFormat = $argv[1];
+$pageName   = 'A';
 
 if (isset($argv[2])) {
-	$nomePagina = $argv[2];
+	$pageName = $argv[2];
 }
 
-$arquivos = glob("{*.$formatoAtual}", GLOB_BRACE);
+$files = glob("{*.$currentFormat}", GLOB_BRACE);
 
 $pg = 1;
-foreach($arquivos as $img){
-	$nova = str_replace($img, $nomePagina.$pg.".".$formatoAtual, $img);
+foreach($files as $img){
+	$renamed = str_replace($img, $pageName.$pg.".".$currentFormat, $img);
 
-	$move = "mv '$img' renomeadas/$nova";
+	$move = "mv '$img' renamed/$renamed";
 
 	`$move`;
 	
 	$pg++;
 
-	echo "Renomeando $img ==> $nova\n";
+	echo "Renamed $img ==> $renamed\n";
 }
