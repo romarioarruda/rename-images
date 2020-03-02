@@ -4,13 +4,9 @@ $currentFormat = $argv[1];
 $pageName   = 'A';
 $pg = 1;
 
-if (!empty($argv[2])) {
-	$pageName = $argv[2];
-}
+if (!empty($argv[2])) $pageName = $argv[2];
 
-if (!empty($argv[3])) {
-	$pg = $argv[3];
-}
+if (!empty($argv[3])) $pg = $argv[3];
 
 $files = glob("{*.$currentFormat}", GLOB_BRACE);
 
