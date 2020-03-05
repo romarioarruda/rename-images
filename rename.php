@@ -14,9 +14,7 @@ $files = glob("{*.$currentFormat}", GLOB_BRACE);
 foreach($files as $img){
 	$renamed = str_replace($img, $pageName.$pg.".".$currentFormat, $img);
 
-	$move = "mv '$img' renamed/$renamed";
-
-	`$move`;
+	exec("mv '$img' renamed/$renamed");
 	
 	$pg++;
 
